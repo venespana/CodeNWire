@@ -24,10 +24,12 @@
       "@/store/*": ["./src/infrastructure/store/*"],
       "@/services/*": ["./src/infrastructure/services/*"],
       "@/types/*": ["./src/domain/types/*"],
+      "@/types": ["./src/domain/types/index.ts"],
       "@/entities/*": ["./src/domain/entities/*"],
       "@/usecases/*": ["./src/application/usecases/*"],
       "@/repositories/*": ["./src/application/repositories/*"],
-      "@/utils/*": ["./src/shared/utils/*"]
+      "@/utils/*": ["./src/shared/utils/*"],
+      "@/constants/*": ["./src/shared/constants/*"]
     }
   },
   "include": ["src"],
