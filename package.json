@@ -1,0 +1,54 @@
+{
+  "name": "codenwire",
+  "version": "1.0.0",
+  "description": "Professional ESP32/Arduino Simulator with Visual Circuit Design",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@8.15.1",
+  "workspaces": [
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "scripts": {
+    "dev": "pnpm -r dev",
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm -r lint:fix",
+    "format": "pnpm -r format",
+    "format:check": "pnpm -r format:check",
+    "typecheck": "pnpm -r typecheck",
+    "clean": "pnpm -r clean && rm -rf node_modules",
+    "install:all": "pnpm install"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "typescript": "^5.6.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/venespana/CodeNWire.git"
+  },
+  "keywords": [
+    "esp32",
+    "arduino",
+    "simulator",
+    "vscode",
+    "extension",
+    "react",
+    "nodejs",
+    "electronics",
+    "arduino",
+    "circuit-design",
+    "embedded"
+  ],
+  "author": "Alejandro de Tovar",
+  "license": "MIT",
+  "homepage": "https://github.com/venespana/CodeNWire#readme",
+  "bugs": {
+    "url": "https://github.com/venespana/CodeNWire/issues"
+  }
+}
