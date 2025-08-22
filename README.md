@@ -229,32 +229,6 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 4. **Push to the branch** (`git push origin feature/amazing-feature`)
 5. **Open a Pull Request**
 
-## 📋 Roadmap
-
-### Phase 1: Foundation (Weeks 1-2)
-- [x] Project setup and monorepo configuration
-- [x] Basic React frontend with Material-UI
-- [x] Express backend with Socket.io
-- [x] VSCode extension scaffold
-
-### Phase 2: Core Features (Weeks 3-4)
-- [ ] Monaco Editor integration
-- [ ] ESP32 simulation engine
-- [ ] Circuit canvas with Konva.js
-- [ ] Real-time WebSocket communication
-
-### Phase 3: Advanced Features (Weeks 5-6)
-- [ ] Component library (sensors, displays, motors)
-- [ ] Project management system
-- [ ] Debugging and monitoring tools
-- [ ] Import/export functionality
-
-### Phase 4: Polish & Release (Weeks 7-8)
-- [ ] Comprehensive testing
-- [ ] Documentation and tutorials
-- [ ] Performance optimization
-- [ ] VSCode Marketplace publication
-
 ## 🤝 Community
 
 - **GitHub Discussions**: Ask questions and share ideas
