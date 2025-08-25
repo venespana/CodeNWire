@@ -1,18 +1,19 @@
 import { useRef, useEffect } from 'react';
 import { Stage, Layer, Rect, Group } from 'react-konva';
 
-import ESP32Board from './ESP32Board';
+import { ESP32Renderer } from '@/presentation/components/electronics';
+import { ESP32Entity } from '@/domain/entities/ESP32';
 import { useCircuitStore, useUIStore } from '../presentation/stores';
 import { ComponentType } from '@/types';
 
 const CircuitCanvas = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { circuit, selectComponent } = useCircuitStore();
-  const { 
-    canvasSize, 
-    setCanvasSize, 
-    gridVisible, 
-    zoom, 
+  const {
+    canvasSize,
+    setCanvasSize,
+    gridVisible,
+    zoom,
     panOffset
   } = useUIStore();
 
@@ -67,9 +68,12 @@ const CircuitCanvas = () => {
   const renderComponent = (component: any) => {
     switch (component.type) {
       case ComponentType.ESP32:
+        // Create ESP32 entity for rendering
+        const esp32Entity = new ESP32Entity(component.id);
         return (
-          <ESP32Board
+          <ESP32Renderer
             key={component.id}
+            component={esp32Entity}
             x={component.position.x}
             y={component.position.y}
             onClick={() => selectComponent(component)}
@@ -82,8 +86,8 @@ const CircuitCanvas = () => {
 
   return (
     <div ref={containerRef} className="flex-1 bg-gray-800 relative overflow-hidden">
-      <Stage 
-        width={canvasSize.width} 
+      <Stage
+        width={canvasSize.width}
         height={canvasSize.height}
         scaleX={zoom}
         scaleY={zoom}
@@ -97,14 +101,6 @@ const CircuitCanvas = () => {
           {/* Circuit Components */}
           {circuit.components.map(renderComponent)}
 
-          {/* Default ESP32 Board if no components */}
-          {circuit.components.length === 0 && (
-            <ESP32Board
-              x={canvasSize.width / 2 - 100}
-              y={canvasSize.height / 2 - 150}
-              onClick={() => {}}
-            />
-          )}
         </Layer>
       </Stage>
     </div>

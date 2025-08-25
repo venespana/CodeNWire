@@ -64,3 +64,11 @@ export interface DragData {
   componentType: ComponentType;
   offset?: Position;
 }
+
+export interface ComponentProps {
+  x: number;
+  y: number;
+  rotation?: number;
+  onClick?: () => void;
+  draggable?: boolean;
+}
