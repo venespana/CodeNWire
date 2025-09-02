@@ -1,13 +1,13 @@
-import type { Position } from '@/domain/types';
 import {
-  ElectronicComponent,
+  type ElectronicComponent,
   LEDComponent,
   ResistorComponent,
   PushButtonComponent,
   PotentiometerComponent,
   CapacitorComponent,
-  ToggleSwitchComponent
+  ToggleSwitchComponent,
 } from '@/domain/entities/ElectronicComponent';
+import type { Position } from '@/domain/types';
 
 export class ComponentFactory {
   private static idCounter = 0;
@@ -38,25 +38,25 @@ export class ComponentFactory {
   }
 
   static getAvailableTypes(): string[] {
-    return [
-      'led',
-      'resistor',
-      'pushbutton',
-      'potentiometer',
-      'capacitor',
-      'toggleswitch'
-    ];
+    return ['led', 'resistor', 'pushbutton', 'potentiometer', 'capacitor', 'toggleswitch'];
   }
 
   static getComponentDisplayName(type: string): string {
     switch (type) {
-      case 'led': return 'LED';
-      case 'resistor': return 'Resistor';
-      case 'pushbutton': return 'Push Button';
-      case 'potentiometer': return 'Potentiometer';
-      case 'capacitor': return 'Capacitor';
-      case 'toggleswitch': return 'Toggle Switch';
-      default: return type;
+      case 'led':
+        return 'LED';
+      case 'resistor':
+        return 'Resistor';
+      case 'pushbutton':
+        return 'Push Button';
+      case 'potentiometer':
+        return 'Potentiometer';
+      case 'capacitor':
+        return 'Capacitor';
+      case 'toggleswitch':
+        return 'Toggle Switch';
+      default:
+        return type;
     }
   }
 }

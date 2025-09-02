@@ -57,8 +57,9 @@ export enum PinType {
   ANALOG = 'analog',
   POWER = 'power',
   GROUND = 'ground',
-  VCC = 'vcc',
 }
+
+export type PinTypeString = 'digital' | 'analog' | 'power' | 'ground';
 
 export interface DragData {
   componentType: ComponentType;

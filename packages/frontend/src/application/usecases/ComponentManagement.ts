@@ -1,5 +1,6 @@
-import type { Position } from '@/domain/types';
 import type { ElectronicComponent } from '@/domain/entities/ElectronicComponent';
+import type { Position } from '@/domain/types';
+
 import { ComponentFactory } from './ComponentFactory';
 
 export interface ComponentRepository {
@@ -23,11 +24,14 @@ export class CreateComponentUseCase {
 export class UpdateComponentUseCase {
   constructor(private repository: ComponentRepository) {}
 
-  async execute(id: string, updates: Partial<{
-    position: Position;
-    rotation: number;
-    properties: Record<string, any>;
-  }>): Promise<ElectronicComponent> {
+  async execute(
+    id: string,
+    updates: Partial<{
+      position: Position;
+      rotation: number;
+      properties: Record<string, any>;
+    }>
+  ): Promise<ElectronicComponent> {
     const component = await this.repository.findById(id);
     if (!component) {
       throw new Error(`Component with id ${id} not found`);

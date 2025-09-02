@@ -88,7 +88,7 @@ export default defineConfig([
               group: 'internal',
             },
           ],
-          pathGroupsExcludedImportTypes: ['react', 'react-dom', 'react-router'],
+          pathGroupsExcludedImportTypes: ['react', 'react-dom', 'react-dom/**', 'react-router'],
           'newlines-between': 'always',
           alphabetize: {
             order: 'asc',
@@ -96,6 +96,7 @@ export default defineConfig([
           },
         },
       ],
+      'import/default': 'off',
       'unused-imports/no-unused-imports': 'error',
       'unused-imports/no-unused-vars': [
         'error',
@@ -112,10 +113,7 @@ export default defineConfig([
       'react/prop-types': 'off',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'warn',
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
   },
   {
