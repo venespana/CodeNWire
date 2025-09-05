@@ -1,5 +1,5 @@
 {
-  "name": "@codenware/server",
+  "name": "@codenwire/server",
   "version": "1.0.0",
   "description": "Backend server for CodeNWire ESP32 circuit designer",
   "main": "dist/index.js",

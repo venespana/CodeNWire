@@ -1,11 +1,12 @@
-import { useCallback } from 'react';
-
 import { Button } from '@nextui-org/react';
 import { Grid, Play, Plus, Square } from 'lucide-react';
 
+import programStore from '@/infrastructure/store/program.store';
+
 const TopBar: React.FC = () => {
-  const { isSimulating, gridVisible, resetCircuit, toggleGrid, toggleSnapToGrid, snapToGrid } = {
-    isSimulating: false,
+  const isRunning = programStore.use.isRunning();
+
+  const { gridVisible, resetCircuit, toggleGrid, toggleSnapToGrid, snapToGrid } = {
     gridVisible: false,
     resetCircuit: () => {},
     toggleGrid: () => {},
@@ -13,15 +14,13 @@ const TopBar: React.FC = () => {
     snapToGrid: false,
   };
 
-  const handleSimulationToggle = useCallback(() => {}, [isSimulating]);
-
   return (
     <div className='bg-gray-900 border-b border-gray-700 p-2 flex items-center gap-2'>
       <Button
         isIconOnly
-        className={`${isSimulating ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'} text-white`}
+        className={`${isRunning ? 'bg-red-600 hover:bg-red-700' : 'bg-green-600 hover:bg-green-700'} text-white`}
         size='sm'
-        onPress={handleSimulationToggle}
+        onPress={() => programStore.getState().setIsRunning(!isRunning)}
       >
         <Play size={16} />
       </Button>
