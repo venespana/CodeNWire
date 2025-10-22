@@ -6,7 +6,7 @@ const InoEditor = () => {
 
   return (
     <textarea
-      className='flex-1 p-4 bg-gray-900 text-white'
+      className='flex-1 p-4 bg-gray-900 text-white resize-none'
       value={sourceCode}
       onChange={e => setSourceCode(e.target.value)}
     />

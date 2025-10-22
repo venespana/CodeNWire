@@ -3,10 +3,13 @@ import { useState, useCallback } from 'react';
 import { PinState } from 'avr8js';
 
 import useRunAvr8Program from '@/application/usecases/useRunAvrProgram';
+import { type ComponentEntityFCProps } from '@/domain/entities/component.entity';
 import { type PortListener } from '@/infrastructure/services/arduinoBoard.service';
 import programStore from '@/infrastructure/store/program.store';
 
-const ArduinoUno: React.FC = () => {
+import ComponentContainer from '../ComponentContainer';
+
+const ArduinoUno: ComponentEntityFCProps = ({ uuid }) => {
   const [builtinLedOn, setBuiltinLedOn] = useState(false);
   const isRunning = programStore.use.isRunning();
 
@@ -20,7 +23,11 @@ const ArduinoUno: React.FC = () => {
     portListener: handlePortsListener,
   });
 
-  return <wokwi-arduino-uno ledPower={isRunning || undefined} led13={!!builtinLedOn || undefined} />;
+  return (
+    <ComponentContainer componentId={uuid}>
+      <wokwi-arduino-uno ledPower={isRunning || undefined} led13={!!builtinLedOn || undefined} />
+    </ComponentContainer>
+  );
 };
 
 export default ArduinoUno;
