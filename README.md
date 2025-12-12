@@ -13,6 +13,7 @@
 ## 🌟 Features
 
 ### 🎨 **Visual Circuit Designer**
+
 - Drag-and-drop component placement
 - Real-time circuit visualization with Konva.js
 - Professional grid-based canvas
@@ -20,6 +21,7 @@
 - Visual connection system with automatic routing
 
 ### 💻 **Integrated Development Environment**
+
 - Monaco Editor with C/C++ syntax highlighting
 - IntelliSense and code completion
 - Real-time compilation feedback
@@ -27,6 +29,7 @@
 - Seamless VSCode extension integration
 
 ### ⚡ **Real-time Simulation**
+
 - Accurate ESP32 GPIO simulation
 - Serial monitor with bidirectional communication
 - Component state visualization (LEDs, displays, sensors)
@@ -34,6 +37,7 @@
 - WebSocket-based real-time updates
 
 ### 🔧 **Professional Tooling**
+
 - TypeScript throughout the stack
 - Modern React 18 with hooks
 - Express.js backend with Socket.io
@@ -60,13 +64,14 @@
 
 ### Prerequisites
 
-- **Node.js** 18+ 
+- **Node.js** 18+
 - **npm** 9+
 - **VSCode** 1.74+ (for extension)
 
 ### Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/venespana/CodeNWire.git
    cd CodeNWire
@@ -74,29 +79,35 @@
 
 2. **Install dependencies**
    ```bash
-   npm install
+   pnpm install
    ```
+
+An Electron application with React and TypeScript
+
+## Recommended IDE Setup
+
+- [VSCode](https://code.visualstudio.com/) + [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) + [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+## Project Setup
 
 3. **Start development servers**
-   ```bash
-   npm run dev
-   ```
 
-4. **Open your browser**
-   - Frontend: http://localhost:3000
-   - Backend API: http://localhost:3001
+```bash
+pnpm dev
+```
 
-### VSCode Extension
+## Build
 
-1. **Build the extension**
-   ```bash
-   npm run build:extension
-   ```
+```bash
+# For windows
+$ pnpm build:win
 
-2. **Install locally**
-   ```bash
-   code --install-extension packages/vscode-extension/codenWire-1.0.0.vsix
-   ```
+# For macOS
+$ pnpm build:mac
+
+# For Linux
+$ pnpm build:linux
+```
 
 ## 📁 Project Structure
 
@@ -150,7 +161,7 @@ void loop() {
     digitalWrite(LED_PIN, HIGH);
     Serial.println("LED ON");
     delay(1000);
-    
+
     digitalWrite(LED_PIN, LOW);
     Serial.println("LED OFF");
     delay(1000);
@@ -175,13 +186,13 @@ void setup() {
 void loop() {
     float temperature = dht.readTemperature();
     float humidity = dht.readHumidity();
-    
+
     Serial.print("Temperature: ");
     Serial.print(temperature);
     Serial.print("°C, Humidity: ");
     Serial.print(humidity);
     Serial.println("%");
-    
+
     delay(2000);
 }
 ```
@@ -229,38 +240,11 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 4. **Push to the branch** (`git push origin feature/amazing-feature`)
 5. **Open a Pull Request**
 
-## 📋 Roadmap
-
-### Phase 1: Foundation (Weeks 1-2)
-- [x] Project setup and monorepo configuration
-- [x] Basic React frontend with Material-UI
-- [x] Express backend with Socket.io
-- [x] VSCode extension scaffold
-
-### Phase 2: Core Features (Weeks 3-4)
-- [ ] Monaco Editor integration
-- [ ] ESP32 simulation engine
-- [ ] Circuit canvas with Konva.js
-- [ ] Real-time WebSocket communication
-
-### Phase 3: Advanced Features (Weeks 5-6)
-- [ ] Component library (sensors, displays, motors)
-- [ ] Project management system
-- [ ] Debugging and monitoring tools
-- [ ] Import/export functionality
-
-### Phase 4: Polish & Release (Weeks 7-8)
-- [ ] Comprehensive testing
-- [ ] Documentation and tutorials
-- [ ] Performance optimization
-- [ ] VSCode Marketplace publication
-
 ## 🤝 Community
 
 - **GitHub Discussions**: Ask questions and share ideas
 - **Issues**: Report bugs and request features
 - **Discord**: Join our community server (coming soon)
-- **Twitter**: Follow [@CodeNWire](https://twitter.com/CodeNWire) for updates
 
 ## 📄 License
 
@@ -269,8 +253,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🙏 Acknowledgments
 
 - **ESP32 Community** for inspiration and hardware documentation
-- **VSCode Team** for the excellent extension API
-- **React Community** for the amazing ecosystem
 - **Open Source Contributors** who make projects like this possible
 
 ## 📊 Project Status
