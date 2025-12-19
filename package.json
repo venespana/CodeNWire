@@ -25,10 +25,14 @@
     "@electron-toolkit/utils": "^4.0.0",
     "@heroui/react": "^2.8.5",
     "@tailwindcss/vite": "^4.1.18",
+    "@tanstack/react-query": "^5.90.12",
     "@tanstack/react-router": "^1.141.2",
     "@tanstack/react-router-devtools": "^1.141.2",
+    "add": "^2.0.6",
     "electron-updater": "^6.3.9",
     "framer-motion": "^12.23.26",
+    "lucide-react": "^0.561.0",
+    "pnpm": "^10.26.1",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
@@ -36,6 +40,7 @@
     "@electron-toolkit/eslint-config-ts": "^3.1.0",
     "@electron-toolkit/tsconfig": "^2.0.0",
     "@eslint/js": "^9.39.1",
+    "@tanstack/react-query-devtools": "^5.91.1",
     "@tanstack/router-plugin": "^1.141.2",
     "@types/node": "^22.19.1",
     "@types/react": "^19.2.7",

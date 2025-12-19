@@ -5,14 +5,33 @@ import { tanstackRouter } from '@tanstack/router-plugin/vite';
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'electron-vite';
 
+const alias = {
+  '@main': resolve('src/main'),
+  '@preload': resolve('src/preload'),
+  '@renderer': resolve('src/renderer/src'),
+  '@shared': resolve('src/shared'),
+};
+
 export default defineConfig({
-  main: {},
-  preload: {},
+  main: {
+    resolve: {
+      alias,
+    },
+    build: {
+      watch: {},
+    },
+  },
+  preload: {
+    resolve: {
+      alias,
+    },
+    build: {
+      watch: {},
+    },
+  },
   renderer: {
     resolve: {
-      alias: {
-        '@renderer': resolve('src/renderer/src'),
-      },
+      alias,
     },
     plugins: [
       tailwindcss(),
@@ -20,7 +39,7 @@ export default defineConfig({
         target: 'react',
         autoCodeSplitting: true,
         routesDirectory: './src/pages',
-        generatedRouteTree: './src/routeTree.gen.ts',
+        generatedRouteTree: './src/app/routers/routeTree.gen.ts',
       }),
       react(),
     ] as any,

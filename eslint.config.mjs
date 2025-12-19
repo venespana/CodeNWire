@@ -1,7 +1,9 @@
+import { fileURLToPath } from 'node:url';
+
 import eslintConfigPrettier from '@electron-toolkit/eslint-config-prettier';
 import tseslint from '@electron-toolkit/eslint-config-ts';
 import js from '@eslint/js';
-import { defineConfig } from 'eslint/config';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import importPlugin from 'eslint-plugin-import';
 import eslintPluginReact from 'eslint-plugin-react';
 import eslintPluginReactHooks from 'eslint-plugin-react-hooks';
@@ -9,8 +11,10 @@ import eslintPluginReactRefresh from 'eslint-plugin-react-refresh';
 import unusedImports from 'eslint-plugin-unused-imports';
 import globals from 'globals';
 
+const tsconfigRootDir = fileURLToPath(new URL('.', import.meta.url));
+
 export default defineConfig(
-  { ignores: ['**/node_modules', '**/dist', '**/out'] },
+  globalIgnores(['**/node_modules', '**/dist', '**/out']),
   {
     files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
     ignores: ['**/node_modules/**'],
@@ -27,7 +31,9 @@ export default defineConfig(
     settings: {
       'import/resolver': {
         typescript: {
-          project: './tsconfig.json',
+          project: 'tsconfig.web.json',
+          tsconfigRootDir,
+          alwaysTryTypes: true,
         },
         node: {
           extensions: ['.js', '.jsx', '.ts', '.tsx'],
@@ -63,37 +69,9 @@ export default defineConfig(
           groups: ['builtin', 'external', 'internal', ['parent', 'sibling', 'index'], 'object', 'unknown'],
           pathGroups: [
             {
-              pattern: 'react',
+              pattern: 'react{,-dom{/**,}}',
               group: 'builtin',
               position: 'before',
-              patternOptions: {},
-            },
-            {
-              pattern: 'react-dom',
-              group: 'builtin',
-              position: 'before',
-              patternOptions: {},
-            },
-            {
-              pattern: 'react-dom/**',
-              group: 'builtin',
-              position: 'after',
-              patternOptions: {},
-            },
-            {
-              pattern: 'react-router',
-              group: 'builtin',
-              patternOptions: {},
-            },
-            {
-              pattern: 'react-router/**',
-              group: 'builtin',
-              position: 'after',
-              patternOptions: {},
-            },
-            {
-              pattern: '~/**',
-              group: 'internal',
             },
           ],
           pathGroupsExcludedImportTypes: ['react', 'react-dom', 'react-dom/**', 'react-router'],

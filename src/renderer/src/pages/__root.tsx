@@ -16,7 +16,9 @@ const RootComponent = () => {
       navigate={(to, options) => router.navigate({ to, ...options })}
       useHref={to => router.buildLocation({ to }).href}
     >
-      <Outlet />
+      <div className='flex flex-col h-dvh w-dvw  justify-center items-center'>
+        <Outlet />
+      </div>
     </HeroUIProvider>
   );
 };
