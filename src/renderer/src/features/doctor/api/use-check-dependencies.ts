@@ -5,13 +5,10 @@ export const useCheckDependencies = (dependencies: string[]) => {
     queryKey: ['check-dependencies', ...dependencies],
     queryFn: async () => {
       const items = await Promise.all(
-        dependencies.map(async item => ({
-          id: item,
-          result: await window.api.doctorCheckDependencies({ id: item }),
-        }))
+        dependencies.map(async item => ({ id: item, ...(await window.api.doctorCheckDependencies({ id: item })) }))
       );
 
-      return items;
+      return items.reduce((acc, { id, ...data }) => ({ ...acc, [id]: data }), {});
     },
   });
 };

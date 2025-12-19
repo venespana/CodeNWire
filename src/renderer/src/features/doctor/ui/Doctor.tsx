@@ -1,9 +1,14 @@
 import { Link, Skeleton } from '@heroui/react';
-import { CircleX } from 'lucide-react';
+import { CircleCheck, CircleX } from 'lucide-react';
 
 import { useCheckDependencies } from '../api/use-check-dependencies';
 
 const validations = [
+  {
+    id: 'git-cli',
+    label: 'Git',
+    href: 'https://git-scm.com/',
+  },
   {
     id: 'arduino-cli',
     label: 'Arduino CLI',
@@ -11,9 +16,10 @@ const validations = [
   },
 ];
 
+const availableValidations = validations.map(v => v.id);
+
 const Doctor = () => {
-  const { data, isLoading } = useCheckDependencies(['arduino-cli']);
-  console.log(data);
+  const { data, isLoading } = useCheckDependencies(availableValidations);
 
   return (
     <div className='flex flex-col'>
@@ -28,7 +34,11 @@ const Doctor = () => {
             </li>
           ) : (
             <li key={validation.id} className='flex gap-2 items-center'>
-              <CircleX size={14} className='text-red-500' />
+              {data?.[validation.id] ? (
+                <CircleCheck size={14} className='text-green-500' />
+              ) : (
+                <CircleX size={14} className='text-red-500' />
+              )}
               <Link isExternal showAnchorIcon href={validation.href as any} color='foreground' size='sm'>
                 {validation.label}
               </Link>

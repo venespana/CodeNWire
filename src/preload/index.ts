@@ -6,7 +6,7 @@ import { IPC_CHANNELS, type TElectronAPI } from '@shared/ipc';
 // Custom APIs for renderer
 const api: TElectronAPI = {
   [IPC_CHANNELS.PING]: () => ipcRenderer.invoke(IPC_CHANNELS.PING),
-  [IPC_CHANNELS.DOCTOR_CHECK_DEPENDENCIES]: id => ipcRenderer.invoke(IPC_CHANNELS.DOCTOR_CHECK_DEPENDENCIES, { id }),
+  [IPC_CHANNELS.DOCTOR_CHECK_DEPENDENCIES]: args => ipcRenderer.invoke(IPC_CHANNELS.DOCTOR_CHECK_DEPENDENCIES, args),
 };
 
 // Use `contextBridge` APIs to expose Electron APIs to
